@@ -10,14 +10,14 @@ class BasePage:
         self.driver = driver
 
     @allure.step('Находим элемент')
-    def find_element_with_wait(self, locator, timeout=5):
+    def find_element_with_wait(self, locator, timeout=10):
         WebDriverWait(self.driver, timeout).until(
             expected_conditions.visibility_of_element_located(locator))
         return self.driver.find_element(*locator)
 
     @allure.step('Кликаем по элементу')
     def click_to_element(self, locator):
-        WebDriverWait(self.driver, 5).until(
+        WebDriverWait(self.driver, 10).until(
             expected_conditions.element_to_be_clickable(
                 locator))
         self.driver.find_element(*locator).click()
@@ -45,7 +45,17 @@ class BasePage:
 
     @allure.step('Перетаскиваем элемент')
     def drag_and_drop(self, src_locator, dst_locator):
-        src_element = self.find_element_with_wait(*src_locator)
-        dst_element = self.find_element_with_wait(*dst_locator)
+        src_element = self.find_element_with_wait(src_locator)
+        dst_element = self.find_element_with_wait(dst_locator)
         action_chains = ActionChains(self.driver)
         action_chains.drag_and_drop(src_element, dst_element).perform()
+
+    @allure.step('Получаем значение атрибута элемента')
+    def get_attribute(self, locator, attribute):
+        return self.find_element_with_wait(locator).get_attribute(attribute)
+
+    def wait_invisibility_of_element(self, locator, timeout=10):
+        return WebDriverWait(self.driver, timeout).until(
+            expected_conditions.invisibility_of_element_located(locator))
+
+

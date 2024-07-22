@@ -17,3 +17,6 @@ BUTTON_PASSWORD_SHOW = (By.XPATH, "//div[@class='input__icon input__icon-action'
 
 # Поле "Введите новый пароль"
 NEW_PASSWORD_FIELD = (By.XPATH, '//input[@name="Введите новый пароль"]')
+
+# Элемент div, в котором лежит поле "Введите новый пароль"
+NEW_PASSWORD_PARENT_DIV = (By.XPATH, '//div[input[@name="Введите новый пароль"]]')

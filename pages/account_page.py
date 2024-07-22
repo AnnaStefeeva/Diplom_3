@@ -11,6 +11,11 @@ class AccountPage(BasePage):
     def get_login_form_text(self):
         return self.get_text_from_element(locators.LOGIN_FORM_TITLE)
 
+    @allure.step('Ждём появления формы логина')
+    def wait_login_form(self):
+        self.find_element_with_wait(locators.LOGIN_FORM_TITLE)
+
+
     @allure.step('Получение текста заголовка формы логина')
     def fill_login_form(self, email, password):
         self.add_text_to_element(locators.LOGIN_FORM_EMAIL_INPUT, email)
