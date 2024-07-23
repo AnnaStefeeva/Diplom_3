@@ -18,3 +18,15 @@ DETAILS_DIALOG_CLOSE_BUTTON = (By.XPATH, ".//button[contains(@class, 'Modal_moda
 
 # Корзина для верхней булки
 ORDER_BASKET = (By.XPATH, ".//ul[contains(@class, 'BurgerConstructor_basket__list')]")
+
+# Кнопка "Оформить заказ"
+ORDER_BUTTON = (By.XPATH, ".//button[text() = 'Оформить заказ']")
+
+# Заголовок идентификатора заказа
+ORDER_WINDOW_ID_HEADER= (By.XPATH, ".//div[contains(@class, 'Modal_modal__contentBox')]/p")
+
+# Номер заказа
+ORDER_NUMBER = (By.XPATH, '//h2[contains(@class, "Modal_modal__title_shadow")]')
+
+# Крестик окна завершения заказа
+ORDER_FINISH_WINDOW_CLOSE_BUTTON = (By.XPATH, ".//button[contains(@class, 'Modal_modal__close')]")

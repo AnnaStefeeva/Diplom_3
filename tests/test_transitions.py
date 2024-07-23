@@ -27,4 +27,3 @@ class TestTransitions:
     def test_go_to_account(self, header_page, account_page):
         header_page.move_to_account()
         assert account_page.get_login_form_text() == data.LOGIN_FORM_TITLE
-

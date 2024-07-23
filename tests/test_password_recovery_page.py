@@ -32,7 +32,8 @@ class TestPasswordRecoveryPage:
     @allure.description('Переходим в личный кабинет, из него переходим на страницу восстановления пароля, '
                         'вводим почту, кликаем на кнопку "Восстановить", ждём появления поля ввода нового пароля, '
                         'кликаем на кнопку показать/скрыть пароль и проверяем, что она подсвечивается')
-    def test_new_password_field_become_active(self, header_page, account_page, password_recovery_page, user_credentials):
+    def test_new_password_field_become_active(self, header_page, account_page,
+                                              password_recovery_page, user_credentials):
         header_page.move_to_account()
         account_page.wait_login_form()
 

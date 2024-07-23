@@ -17,3 +17,5 @@ PASSWORD_RECOVERY_HEADER_TEXT = 'Восстановление пароля'
 INGREDIENT_HASH = '61c0c5a71d1f82001bdaaa6d'
 
 INGREDIENT_DETAILS_HEADER_TEXT = 'Детали ингредиента'
+
+ORDER_FINISH_WINDOW_HEADER = 'идентификатор заказа'

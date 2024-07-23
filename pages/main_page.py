@@ -1,3 +1,4 @@
+import time
 from pages.base_page import BasePage
 import allure
 import locators.main_page_locators as locators
@@ -46,3 +47,22 @@ class MainPage(BasePage):
         ingredient_locator = self.format_locator(locators.INGREDIENT_ELEM, ingredient_hash)
         self.drag_and_drop(ingredient_locator, locators.ORDER_BASKET)
 
+    @allure.step('Кликаем по кнопке "Оформить заказ"')
+    def click_order_button(self):
+        self.click_to_element(locators.ORDER_BUTTON)
+
+    @allure.step('Получаем заголовок окна завершения заказа')
+    def get_order_finish_id_header(self):
+        return self.get_text_from_element(locators.ORDER_WINDOW_ID_HEADER)
+
+    @allure.step('Ждём появления окна завершения заказа')
+    def wait_order_finish(self):
+        self.wait_correct_order_number(locators.ORDER_NUMBER)
+
+    @allure.step('Получаем id заказа')
+    def get_order_id(self):
+        return self.wait_correct_order_number(locators.ORDER_NUMBER)
+
+    @allure.step('Закрываем окно завершения заказа')
+    def close_order_finish_window(self):
+        self.click_to_element(locators.ORDER_FINISH_WINDOW_CLOSE_BUTTON)

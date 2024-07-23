@@ -15,6 +15,9 @@ class AccountPage(BasePage):
     def wait_login_form(self):
         self.find_element_with_wait(locators.LOGIN_FORM_TITLE)
 
+    @allure.step('Ждём загрузки страницы')
+    def wait_page_ready(self):
+        self.find_element_with_wait(locators.ORDER_HISTORY_BUTTON)
 
     @allure.step('Получение текста заголовка формы логина')
     def fill_login_form(self, email, password):
@@ -41,3 +44,8 @@ class AccountPage(BasePage):
     @allure.step('Кликаем на ссылку "Восстановить пароль"')
     def go_to_password_recovery(self):
         self.click_to_element(locators.PASSWORD_RECOVERY_LINK)
+
+    @allure.step('Получаем номер первого заказа из истории')
+    def get_first_order_id(self):
+        text = self.get_text_from_element(locators.FIRST_ORDER_ID)
+        return text[2:]  # убираем символы '#' и '0'

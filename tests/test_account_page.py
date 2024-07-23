@@ -35,7 +35,3 @@ class TestAccountPage:
         account_page.logout()
 
         assert account_page.get_login_form_text() == data.LOGIN_FORM_TITLE
-
-
-
-

@@ -36,7 +36,6 @@ def generate_new_user_credentials(empty_field=None):
     return credentials
 
 
-
 def create_user(credentials):
     response = api.create_user(credentials)
     response_payload = response.json()

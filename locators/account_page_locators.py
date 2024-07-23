@@ -30,3 +30,6 @@ HISTORY_LIST = (By.XPATH, '//div[contains(@class, "OrderHistory_orderHistory")]'
 
 # Кнопка "Выход"
 LOGOUT_BUTTON = (By.XPATH, '//button[text()="Выход"]')
+
+# Номер первого заказа в истории
+FIRST_ORDER_ID = (By.XPATH, "//ul[contains(@class, 'OrderHistory_profileList')]/li[1]/a/div/p[1]")

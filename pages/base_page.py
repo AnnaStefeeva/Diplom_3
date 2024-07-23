@@ -58,4 +58,8 @@ class BasePage:
         return WebDriverWait(self.driver, timeout).until(
             expected_conditions.invisibility_of_element_located(locator))
 
-
+    def wait_correct_order_number(self, number_locator):
+        WebDriverWait(self.driver, 30).until_not(
+            lambda driver: driver.find_element(*number_locator).text == "9999"
+        )
+        return self.get_text_from_element(number_locator)
