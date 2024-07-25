@@ -22,8 +22,8 @@ class TestAccountPage:
         assert account_page.get_active_item_text() == data.ORDERS_HISTORY_ITEM_TEXT
 
     @allure.title('Выход из аккаунта')
-    @allure.description('Переходим в личный кабинет, авторизуемся и выходим из аккаунта '
-                        'и ждём появления формы логина')
+    @allure.description('Переходим в личный кабинет, авторизуемся и выходим из аккаунта, '
+                        ' ждём появления формы логина')
     def test_logout(self, header_page, main_page, account_page, user_credentials):
         header_page.move_to_account()
         account_page.wait_login_form()

@@ -119,3 +119,29 @@ class TestsOrdersFeedPage:
         id_text = orders_feed_page.find_order_id_in_work_list(order_id)
         # в тексте 2 строки "0" и id, поэтому проверяем через in
         assert order_id in id_text
+
+    @allure.title('Открываем окно с деталями заказа')
+    @allure.description('Логинимся, выполняем заказ, переходим в ленту заказов, '
+                        'кликаем на заказе и проверяем, что открылось окно с деталями')
+    def test_open_order_info(self, header_page, account_page,
+                                   main_page, orders_feed_page, user_credentials):
+        # логинимся
+        header_page.move_to_account()
+        account_page.wait_login_form()
+        account_page.fill_login_form(user_credentials['email'], user_credentials['password'])
+        main_page.wait_page_loading()
+
+        # делаем заказ
+        main_page.add_ingredients_to_order(data.INGREDIENT_HASH)
+        main_page.click_order_button()
+        main_page.get_order_id()
+        main_page.close_order_finish_window()
+
+        # идём в ленту заказов
+        header_page.move_to_orders_feed()
+        orders_feed_page.wait_orders_feed()
+
+        # кликаем на первом заказе
+        orders_feed_page.click_on_first_order()
+
+        assert orders_feed_page.wait_order_details_window() is not None

@@ -12,8 +12,7 @@ from pages.orders_feed_page import OrdersFeedPage
 
 
 @allure.step('Открываем окно браузера')
-# @pytest.fixture(params=['chrome', 'firefox'])
-@pytest.fixture(params=['chrome'])
+@pytest.fixture(params=['chrome', 'firefox'])
 def driver(request):
     if request.param == 'chrome':
         driver = webdriver.Chrome()
